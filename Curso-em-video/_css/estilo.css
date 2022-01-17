@@ -246,4 +246,13 @@ table#tabelaspec caption {
     font-weight: bolder;
 }
 
-/*Estilo das especificações FINAL*/
+/*Estilo dos videos*/
+
+#video1{
+    width: 508px;
+    height: 508px;
+}
+#video2{
+    width: 351px;
+    height: 351px;
+}
