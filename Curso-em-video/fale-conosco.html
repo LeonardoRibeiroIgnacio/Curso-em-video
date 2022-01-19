@@ -7,7 +7,14 @@
     <title>Aula</title>
     <link rel="stylesheet" href="_css/estilo.css"/>
     <link rel="stylesheet" href="_css/form.css"/>
-
+    <script language="javascript" src="_javascript/funcoes.js" ></script>
+    <script>
+        function calc_total() {
+            var qtd = parseInt(document.getElementById('cQtd').value);
+            tot = qtd * 1500;
+            document.getElementById('cTot').value = tot;
+        }
+    </script>
 </head>
 <body>
 <div id="interface">
@@ -42,36 +49,57 @@
                 <h3 class="direita">Atualizado em 01/Maio/2013</h3>
             </hgroup>
         </header>
-        <form action="">
+        <form action="post" id="fContato" action="mailto:leu.clx1234@gmail.com" oninput="calc_total();">
 <fieldset id="usuario"><legend>Identificação do Usuário</legend>
-   <p><label for="cnome">Nome:</label> <input type="text" name="tNome" id="cnome" size="20" maxlength="30" placeholder="Nome Completo"> </p>
-   <p><label for="csenha">Senha:</label></label><input type="password" name="tSenha" id="csenha" size="8" maxlength="8" placeholder="Senha"></p>
-   <p><label for="cMail">E-mail:</label></label><input type="email" name="tMail" id="cMail" size="20" maxlength="40" placeholder="E-mail"></p>
+   <p><label for="cnome">Nome:</label> <input type="text" name="tNome" id="cnome" size="20" maxlength="30" placeholder="Nome Completo"></p>
+   <p><label for="csenha">Senha:</label><input type="password" name="tSenha" id="csenha" size="8" maxlength="8" placeholder="Senha"></p>
+   <p><label for="cMail">E-mail:</label><input type="email" name="tMail" id="cMail" size="20" maxlength="40" placeholder="E-mail"></p>
 <fieldset id="sexo"><legend>Sexo</legend>
         <input type="radio" id="cMasc" name="tSexo"/> <label for="cMasc">Masculino</label>
         <input type="radio" id="cFem" name="tSexo"/><label for="cFem">Feminino</label></fieldset>
    <p><label for="">Data de Nascimento:</label><input type="date" name="tNasc" id="cNasc"></p></fieldset>
 
 <fieldset id="endereco"><legend>Endereço do Usuário</legend>
-    <p> Logradouro:</label><input type="text" name="tRua" id="cRua" size="13" maxlength="80" placeholder="Rua, Av ou travessa"/></p>
-    <p> Número:</label><input type="number" name="tNum" id="cNum" min="0" max="99999"/></p>
-    Estado:
-    Cidade:
+    <p><label for=""></label> Logradouro:</label><input type="text" name="tRua" id="cRua" size="13" maxlength="80" placeholder="Rua, Av ou travessa"/></p>
+    <p><label for="">Número:</label><input type="number" name="tNum" id="cNum" min="0" max="99999"/></p>
+    <p><label for="cEst">Estado:</label> <select name="tEstado" id="cEst">
+    <optgroup label="Região Sudeste">  
+        <option value="Rio de Janeiro">RJ</option>
+    </optgroup>
+    <optgroup label="Região Sul">
+        <option value="Rio grande do Sul" selected>RS</option>
+        <option value="Santa Catarina">SC</option>
+    </optgroup>
+    </select> </p>
+    <p><label for="cCid">Cidade:</label> <input type="text" name="tCid" id="cCid" size="20" maxlength="40" placeholder="Sua Cidade" list="Cidades"/></p>
+    <datalist id="Cidades">
+        <option value="Viamão"></option>
+        <option value="Porto Alegre"></option>
+        <option value="Canoas"></option>
+        <option value="Monte Alegre"></option>
+    </datalist>
 </fieldset>
 
 <fieldset id="mensagem"><legend>Mensagem do Usuário</legend>
-    Grau de Urgência:
-    Mensagem:
+    <p><label for="cUrg">Grau de Urgência:</label>
+    Min<input type="range" name="tUrg" id="cUrg" min="0" max="20" step="1">Max</p>
+    <p><label for="cMsg">Mensagem:</label>
+    <textarea name="tMsg" id="cMsg" cols="25" rows="3" placeholder="Deixe sua Mensagem"></textarea> </p>
 </fieldset>
 
 <fieldset id="pedido"><legend>Quero um Google Glass</legend>
-    Gostaria de adquirir um Google Glass quando disponível
-    Cor:
-    Quantidade:
-    Preço Total: R$
+    <p> <input type="checkbox" name="tPed" id="cPed" checked/>
+        <label for="cPed">Gostaria de adquirir um Google Glass quando disponível</label></p>
+    <p><label for="cCor">Cor:</label>
+    <input type="color" name="tCor" id="cCor" value="#ffffff"/></p>
+    <p><label for="cQtd">Quantidade:</label>
+    <input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0"/></p>
+    <p><label for="cTot">Preço Total: R$</label>
+    <input type="text" name="tTot" id="cTot" placeholder="Total a Pagar" readonly></p>
 </fieldset>
 
-[BOTÃO ENVIAR]
+   <!--<input type="submit" value="Enviar">-->
+    <input type="image" src="../Curso-em-video/_imagens/botao-enviar.png" name="tEnviar">
 </form>
 
 </article>
@@ -83,5 +111,4 @@
     </footer>
     </div>
     </body>
-    <script language="javascript" src="_javascript/funcoes.js" ></script>
     </html>
